@@ -42,6 +42,8 @@ const RegisterModal = () => {
         setIsLoading(true);
         axios.post('/api/auth/register/',data)
         .then(()=>{
+            toast.success("Success!")
+            LoginModal.onOpen()
             registerModal.onClose()
         })
         .catch((error)=>{
@@ -55,7 +57,7 @@ const RegisterModal = () => {
         LoginModal.onOpen()
         registerModal.onClose()
     },[LoginModal, registerModal])
-    const bodyContent = (
+    const bodyContent = ( 
         <div className="flex flex-col gap-4">
             <Heading
              title="Welcome to Airbnb"
